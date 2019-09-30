@@ -23,4 +23,12 @@
         android:layout_margin="32dp"
         />
 
+    <Button
+        android:id="@+id/volumeUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:onClick="volumeUp"
+        />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

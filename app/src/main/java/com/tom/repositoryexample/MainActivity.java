@@ -2,6 +2,7 @@ package com.tom.repositoryexample;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int ADD_NOTE_REQUEST = 1;
     private NoteViewModel noteViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,5 +73,17 @@ public class MainActivity extends AppCompatActivity {
         else {
             Toast.makeText(this, "Note NOT Saved", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void volumeUp(View view) {
+
+        Log.i("TOM", "Main volumeUp");
+
+        LiveData<List<Note>> myNotes = noteViewModel.getAllNotes();
+
+        Note myNote = myNotes.getValue().get(2);
+
+        Toast.makeText(this, myNote.getTitle(), Toast.LENGTH_SHORT).show();
+
     }
 }

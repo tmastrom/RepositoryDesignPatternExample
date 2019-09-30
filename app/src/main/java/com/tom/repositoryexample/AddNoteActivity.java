@@ -54,7 +54,9 @@ public class AddNoteActivity extends AppCompatActivity {
 
         setResult(RESULT_OK, data);
         finish();
+    }
 
+    private void volumeUp() {
 
     }
 
